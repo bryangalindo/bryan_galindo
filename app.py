@@ -10,4 +10,4 @@ def home():
 
 @app.route('/resume')
 def resume():
-    return redirect('https://drive.google.com/file/d/17IZ2oL1kwzipGtUE61GhHFHIbPkswj2p/view?usp=sharing')
+    return redirect('https://drive.google.com/file/d/176ErFqQkpsoDVQ-kNw55t6i8GLlrW8cO/view?usp=sharing')
