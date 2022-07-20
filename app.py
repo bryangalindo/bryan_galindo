@@ -26,3 +26,8 @@ def ebayscraper():
 @app.route('/rankmebby')
 def rankmebby():
     return redirect('https://rankmebby.com/collections/metabaes?id=622')
+
+
+@app.route('/tamalemkt')
+def tamalemkt():
+    return redirect('https://tamalemkt.com')
