@@ -16,3 +16,13 @@ def resume():
 @app.route('/breakoutlevels')
 def breakouts():
     return redirect('https://archive.ph/YNd5H')
+
+
+@app.route('/ebayscraper')
+def ebayscraper():
+    return redirect('https://github.com/bryangalindo/scrape/blob/master/ebayscrape.py')
+
+
+@app.route('/rankmebby')
+def rankmebby():
+    return redirect('https://rankmebby.com/collections/metabaes?id=622')
