@@ -10,7 +10,7 @@ def home():
 
 @app.route('/resume')
 def resume():
-    return redirect('https://drive.google.com/file/d/1QRPfRh5tIq86xZE-ODQR6f6GQnR5UAlN/view?usp=sharing')
+    return redirect('https://drive.google.com/file/d/1xBXerPn02dEXV7t-D-REJZaQbF6kYC_v/view?usp=sharing')
 
 
 @app.route('/breakoutlevels')
