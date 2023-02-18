@@ -14,7 +14,7 @@ def client() -> FlaskClient:
     yield app.test_client()
 
 
-def test_landing_page(client: FlaskClient):
+def test_landing_page(client: FlaskClient) -> None:
     landing = client.get("/")
     assert landing.status_code == 200
     html = landing.data.decode()
