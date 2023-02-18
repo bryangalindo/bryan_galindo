@@ -12,3 +12,12 @@ def client() -> FlaskClient:
     :return: app for testing (e.g., <class 'flask.testing.FlaskClient'>)
     """
     yield app.test_client()
+
+
+def test_landing_page(client: FlaskClient):
+    landing = client.get("/")
+    assert landing.status_code == 200
+    html = landing.data.decode()
+    assert '<section id="about-me">' in html
+    assert '<section id="hobbies">' in html
+    assert '<meta http-equiv="Cache-Control"' in html
