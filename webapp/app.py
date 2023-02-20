@@ -9,7 +9,7 @@ from werkzeug.wrappers.response import Response
 
 load_dotenv()
 
-RESUME_URL = os.getenv("RESUME_URL")
+RESUME_URL = os.environ["RESUME_URL"]
 
 app: Flask = Flask(__name__)
 
