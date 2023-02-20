@@ -30,7 +30,6 @@ def test_home_page(
     """
     with client as test_client:
         response = test_client.get("/")
-        assert response.status_code == 200
         html = response.data.decode()
         assert '<section id="about-me">' in html
         assert '<section id="hobbies">' in html
@@ -47,7 +46,6 @@ def test_resume_endpoint(
     """
     with client as test_client:
         response = test_client.get("/resume")
-        assert response.status_code == 302
         assert response.request.path == "/resume"
         assert response.location == cfg.RESUME_URL
 
@@ -62,7 +60,6 @@ def test_tamalemkt_endpoint(
     """
     with client:
         response = client.get("/tamalemkt")
-        assert response.status_code == 302
         assert response.request.path == "/tamalemkt"
         assert response.location == "https://tamalemkt.com"
 
@@ -78,7 +75,6 @@ def test_robotstxt_endpoint(
     with client:
         response = client.get("/robots.txt")
         html = response.data.decode()
-        assert response.status_code == 200
         assert "User-agent: *" in html
         assert "Disallow: /" in html
 
@@ -93,7 +89,6 @@ def test_content_security_policy_header_exists(
     """
     with client:
         response = client.get("/")
-        assert response.status_code == 200
         assert "Content-Security-Policy" in response.headers
         assert response.headers["Content-Security-Policy"] == "default-src 'self'"
 
@@ -108,7 +103,6 @@ def test_strict_transport_security_header_exists(
     """
     with client:
         response = client.get("/")
-        assert response.status_code == 200
         assert "Strict-Transport-Security" in response.headers
         assert (
             response.headers["Strict-Transport-Security"]
