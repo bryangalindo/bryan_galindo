@@ -1,3 +1,6 @@
+"""
+Unit tests for Flask endpoints
+"""
 import pytest
 from flask.testing import FlaskClient
 
