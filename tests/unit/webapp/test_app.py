@@ -50,3 +50,18 @@ def test_resume_endpoint(
         assert response.status_code == 302
         assert response.request.path == "/resume"
         assert response.location == cfg.RESUME_URL
+
+
+def test_tamalemkt_endpoint(
+    client: FlaskClient,  # pylint: disable=redefined-outer-name
+) -> None:
+    """
+    Tests resume endpoint to make sure redirects are ok.
+
+    :return: None
+    """
+    with client:
+        response = client.get("/tamalemkt")
+        assert response.status_code == 302
+        assert response.request.path == "/tamalemkt"
+        assert response.location == "https://tamalemkt.com"
