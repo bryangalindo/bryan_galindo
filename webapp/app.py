@@ -21,7 +21,9 @@ def add_security_headers(response: Response) -> Response:
     :param response: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
     :return: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
     """
-    response.headers["Content-Security-Policy"] = "default-src 'self'"
+    response.headers[
+        "Content-Security-Policy"
+    ] = "script-src cdn.jsdelivr.net code.jquery.com cdn.rawgit.com"
     response.headers[
         "Strict-Transport-Security"
     ] = "max-age=31536000; includeSubDomains"

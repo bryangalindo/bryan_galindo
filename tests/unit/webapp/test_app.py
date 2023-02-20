@@ -91,7 +91,10 @@ def test_content_security_policy_header_exists(
     with client:
         response = client.get("/")
         assert "Content-Security-Policy" in response.headers
-        assert response.headers["Content-Security-Policy"] == "default-src 'self'"
+        assert (
+            response.headers["Content-Security-Policy"]
+            == "script-src cdn.jsdelivr.net code.jquery.com cdn.rawgit.com"
+        )
 
 
 def test_strict_transport_security_header_exists(
