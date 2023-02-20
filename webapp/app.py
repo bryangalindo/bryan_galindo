@@ -1,7 +1,7 @@
 from flask import render_template, Flask, redirect
 from werkzeug.wrappers.response import Response
 
-app = Flask(__name__)
+app: Flask = Flask(__name__)
 
 
 @app.route("/")
