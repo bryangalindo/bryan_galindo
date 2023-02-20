@@ -65,3 +65,19 @@ def test_tamalemkt_endpoint(
         assert response.status_code == 302
         assert response.request.path == "/tamalemkt"
         assert response.location == "https://tamalemkt.com"
+
+
+def test_robotstxt_endpoint(
+    client: FlaskClient,  # pylint: disable=redefined-outer-name
+) -> None:
+    """
+    Tests robots.txt endpoint to make sure txt file is loaded correctly.
+
+    :return: None
+    """
+    with client:
+        response = client.get("/robots.txt")
+        html = response.data.decode()
+        assert response.status_code == 200
+        assert "User-agent: *" in html
+        assert "Disallow: /" in html
