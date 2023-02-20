@@ -28,9 +28,9 @@ def test_landing_page(
     :return: None
     """
     with client as test_client:
-        landing = test_client.get("/")
-        assert landing.status_code == 200
-        html = landing.data.decode()
+        response = test_client.get("/")
+        assert response.status_code == 200
+        html = response.data.decode()
         assert '<section id="about-me">' in html
         assert '<section id="hobbies">' in html
         assert '<meta http-equiv="Cache-Control"' in html
