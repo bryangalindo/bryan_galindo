@@ -95,6 +95,7 @@ def test_content_security_policy_header_exists(
         response = client.get("/")
         assert response.status_code == 200
         assert "Content-Security-Policy" in response.headers
+        assert response.headers["Content-Security-Policy"] == "default-src 'self'"
 
 
 def test_strict_transport_security_header_exists(
