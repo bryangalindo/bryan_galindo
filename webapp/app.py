@@ -1,8 +1,15 @@
 """
 Main entrypoint for Flask app
 """
+import os
+
+from dotenv import load_dotenv
 from flask import render_template, Flask, redirect
 from werkzeug.wrappers.response import Response
+
+load_dotenv()
+
+RESUME_URL = os.getenv("RESUME_URL")
 
 app: Flask = Flask(__name__)
 
@@ -24,9 +31,7 @@ def resume() -> Response:
 
     :returns: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
     """
-    return redirect(
-        "https://drive.google.com/file/d/1kTTryC5yijLwlhN7mldimq2y46l__hFn/view?usp=sharing"
-    )
+    return redirect(RESUME_URL)
 
 
 @app.route("/tamalemkt")
