@@ -95,3 +95,21 @@ def test_content_security_policy_header_exists(
         response = client.get("/")
         assert response.status_code == 200
         assert "Content-Security-Policy" in response.headers
+
+
+def test_strict_transport_security_header_exists(
+    client: FlaskClient,  # pylint: disable=redefined-outer-name
+) -> None:
+    """
+    Confirms that the 'Strict-Transport-Security' header value exists.
+
+    :return: None
+    """
+    with client:
+        response = client.get("/")
+        assert response.status_code == 200
+        assert "Strict-Transport-Security" in response.headers
+        assert (
+            response.headers["Strict-Transport-Security"]
+            == "max-age=31536000; includeSubDomains"
+        )
