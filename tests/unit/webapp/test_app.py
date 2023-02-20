@@ -81,3 +81,17 @@ def test_robotstxt_endpoint(
         assert response.status_code == 200
         assert "User-agent: *" in html
         assert "Disallow: /" in html
+
+
+def test_content_security_policy_header_exists(
+    client: FlaskClient,  # pylint: disable=redefined-outer-name
+) -> None:
+    """
+    Confirms that the 'Content-Security-Policy' header value exists.
+
+    :return: None
+    """
+    with client:
+        response = client.get("/")
+        assert response.status_code == 200
+        assert "Content-Security-Policy" in response.headers
