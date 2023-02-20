@@ -1,3 +1,10 @@
+"""
+Central location for environment variables
+
+Typical usage example:
+    import core.config as cfg
+    foo = cfg.FOO
+"""
 import os
 
 from dotenv import load_dotenv
