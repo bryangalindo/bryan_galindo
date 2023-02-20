@@ -114,3 +114,22 @@ def test_strict_transport_security_header_exists(
             response.headers["Strict-Transport-Security"]
             == "max-age=31536000; includeSubDomains"
         )
+
+
+def test_endpoint_status_codes(
+    client: FlaskClient,  # pylint: disable=redefined-outer-name
+) -> None:
+    """
+    Confirms that all endpoints return the correct status code.
+
+    :return: None
+    """
+    with client:
+        response = client.get("/")
+        assert response.status_code == 200
+        response = client.get("/resume")
+        assert response.status_code == 302
+        response = client.get("/tamalemkt")
+        assert response.status_code == 302
+        response = client.get("/robots.txt")
+        assert response.status_code == 200
