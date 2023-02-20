@@ -93,7 +93,7 @@ def test_content_security_policy_header_exists(
         assert "Content-Security-Policy" in response.headers
         assert (
             response.headers["Content-Security-Policy"]
-            == "script-src cdn.jsdelivr.net code.jquery.com cdn.rawgit.com"
+            == "script-src cdn.jsdelivr.net code.jquery.com cdn.rawgit.com cdn.usefathom.com"
         )
 
 

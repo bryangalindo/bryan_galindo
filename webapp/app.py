@@ -23,7 +23,7 @@ def add_security_headers(response: Response) -> Response:
     """
     response.headers[
         "Content-Security-Policy"
-    ] = "script-src cdn.jsdelivr.net code.jquery.com cdn.rawgit.com"
+    ] = "script-src cdn.jsdelivr.net code.jquery.com cdn.rawgit.com cdn.usefathom.com"
     response.headers[
         "Strict-Transport-Security"
     ] = "max-age=31536000; includeSubDomains"
