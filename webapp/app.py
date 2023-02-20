@@ -1,3 +1,6 @@
+"""
+Main entrypoint for Flask app
+"""
 from flask import render_template, Flask, redirect
 from werkzeug.wrappers.response import Response
 
