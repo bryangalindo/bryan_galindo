@@ -24,7 +24,7 @@ def test_home_page(
     client: FlaskClient,  # pylint: disable=redefined-outer-name
 ) -> None:
     """
-    Tests landing page for major html sections/tags.
+    Tests home page for major html sections/tags.
 
     :return: None
     """
