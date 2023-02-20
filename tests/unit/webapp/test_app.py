@@ -19,7 +19,7 @@ def client() -> Iterator[FlaskClient]:  # pylint: disable=redefined-outer-name
     yield app.test_client()
 
 
-def test_landing_page(
+def test_home_page(
     client: FlaskClient,  # pylint: disable=redefined-outer-name
 ) -> None:
     """
