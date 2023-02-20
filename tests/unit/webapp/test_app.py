@@ -8,7 +8,7 @@ from webapp.app import app  # pylint: disable=import-error
 
 
 @pytest.fixture
-def client() -> FlaskClient:
+def client() -> FlaskClient:  # pylint: disable=redefined-outer-name
     """
     Initializes a Flask testing client.
 
@@ -18,8 +18,8 @@ def client() -> FlaskClient:
 
 
 def test_landing_page(
-    client: FlaskClient,
-) -> None:  # pylint: disable=redefined-outer-name
+    client: FlaskClient,  # pylint: disable=redefined-outer-name
+) -> None:
     """
     Tests landing page for major html sections/tags.
 
