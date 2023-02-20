@@ -76,6 +76,7 @@ def test_robotstxt_endpoint(
         response = client.get("/robots.txt")
         html = response.data.decode()
         assert "User-agent: *" in html
+        assert "Allow: /$" in html
         assert "Disallow: /" in html
 
 
