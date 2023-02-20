@@ -27,5 +27,10 @@ def resume() -> Response:
 
 
 @app.route("/tamalemkt")
-def tamalemkt():
+def tamalemkt() -> Response:
+    """
+    Redirects the client to the tamale ordering website I built for my mom.
+
+    :returns: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
+    """
     return redirect("https://tamalemkt.com")
