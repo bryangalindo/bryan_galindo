@@ -1,15 +1,10 @@
 """
 Main entrypoint for Flask app
 """
-import os
-
-from dotenv import load_dotenv
 from flask import render_template, Flask, redirect
 from werkzeug.wrappers.response import Response
 
-load_dotenv()
-
-RESUME_URL: str = os.environ["RESUME_URL"]
+import core.config as cfg
 
 app: Flask = Flask(__name__)
 
@@ -31,7 +26,7 @@ def resume() -> Response:
 
     :returns: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
     """
-    return redirect(RESUME_URL)
+    return redirect(cfg.RESUME_URL)
 
 
 @app.route("/tamalemkt")
