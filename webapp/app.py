@@ -26,16 +26,6 @@ def resume() -> Response:
     )
 
 
-@app.route("/breakoutlevels")
-def breakouts():
-    return redirect("https://archive.ph/YNd5H")
-
-
-@app.route("/ebayscraper")
-def ebayscraper():
-    return redirect("https://github.com/bryangalindo/scrape/blob/master/ebayscrape.py")
-
-
 @app.route("/tamalemkt")
 def tamalemkt():
     return redirect("https://tamalemkt.com")
