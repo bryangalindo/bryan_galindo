@@ -1,7 +1,9 @@
 """
 Main entrypoint for Flask app
 """
-from flask import render_template, Flask, redirect
+from flask import Flask
+from flask import redirect
+from flask import render_template
 from werkzeug.wrappers.response import Response
 
 import core.config as cfg
@@ -14,7 +16,7 @@ def home() -> str:
     """
     Renders the home template from the template folder as a str.
 
-    :returns: html as str (e.g., '<!doctype html><html lang="en"><body>...</body></html>')
+    :returns: html as str (e.g., '<!doctype html>...<body>...</body></html>')
     """
     return render_template("home.html")
 
