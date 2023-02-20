@@ -4,6 +4,7 @@ Main entrypoint for Flask app
 from flask import Flask
 from flask import redirect
 from flask import render_template
+from flask import send_from_directory
 from werkzeug.wrappers.response import Response
 
 import core.config as cfg
@@ -39,3 +40,13 @@ def tamalemkt() -> Response:
     :returns: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
     """
     return redirect("https://tamalemkt.com")
+
+
+@app.route("/robots.txt")
+def robotstxt() -> Response:
+    """
+    Loads robot.txt from Flask static folder.
+
+    :returns: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
+    """
+    return send_from_directory(app.static_folder, "robots.txt")
