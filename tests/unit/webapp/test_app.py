@@ -6,6 +6,7 @@ from typing import Iterator
 import pytest
 from flask.testing import FlaskClient
 
+import core.config as cfg
 from webapp.app import app  # pylint: disable=import-error
 
 
@@ -34,3 +35,18 @@ def test_home_page(
         assert '<section id="about-me">' in html
         assert '<section id="hobbies">' in html
         assert '<meta http-equiv="Cache-Control"' in html
+
+
+def test_resume_endpoint(
+    client: FlaskClient,  # pylint: disable=redefined-outer-name
+) -> None:
+    """
+    Tests resume endpoint to make sure redirects are ok.
+
+    :return: None
+    """
+    with client as test_client:
+        response = test_client.get("/resume")
+        assert response.status_code == 302
+        assert response.request.path == "/resume"
+        assert response.location == cfg.RESUME_URL
