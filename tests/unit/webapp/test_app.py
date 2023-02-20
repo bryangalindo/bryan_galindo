@@ -1,11 +1,11 @@
 import pytest
 from flask.testing import FlaskClient
 
-from webapp.app import app  # pylint: disable=import-error actually imports ok
+from webapp.app import app  # pylint: disable=import-error
 
 
 @pytest.fixture
-def client() -> FlaskClient:  # pylint: disable=redefined-outer-name necessary for flask unit test
+def client() -> FlaskClient:  # pylint: disable=redefined-outer-name
     """
     Initializes a Flask testing client.
 
