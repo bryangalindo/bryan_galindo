@@ -15,12 +15,16 @@ app: Flask = Flask(__name__)
 @app.after_request
 def add_security_headers(response: Response) -> Response:
     """
-    Adds CSP headers to response to prevent cross-site scripting attacks.
+    Adds security headers to response to prevent attacks (e.g., cross-site scripting,
+    man-in-the-middle (MITM)).
 
     :param response: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
     :return: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
     """
     response.headers["Content-Security-Policy"] = "default-src 'self'"
+    response.headers[
+        "Strict-Transport-Security"
+    ] = "max-age=31536000; includeSubDomains"
     return response
 
 
