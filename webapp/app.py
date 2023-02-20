@@ -12,6 +12,18 @@ import core.config as cfg
 app: Flask = Flask(__name__)
 
 
+@app.after_request
+def add_security_headers(response: Response) -> Response:
+    """
+    Adds CSP headers to response to prevent cross-site scripting attacks.
+
+    :param response: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
+    :return: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
+    """
+    response.headers["Content-Security-Policy"] = "default-src 'self'"
+    return response
+
+
 @app.route("/")
 def home() -> str:
     """
