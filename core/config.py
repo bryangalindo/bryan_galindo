@@ -1,5 +1,5 @@
 """
-Central location for environment variables
+Central location for environment variables.
 
 Typical usage example:
     import core.config as cfg
