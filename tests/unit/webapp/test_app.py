@@ -1,6 +1,8 @@
 """
 Unit tests for Flask endpoints
 """
+from typing import Iterator
+
 import pytest
 from flask.testing import FlaskClient
 
@@ -8,7 +10,7 @@ from webapp.app import app  # pylint: disable=import-error
 
 
 @pytest.fixture
-def client() -> FlaskClient:  # pylint: disable=redefined-outer-name
+def client() -> Iterator[FlaskClient]:  # pylint: disable=redefined-outer-name
     """
     Initializes a Flask testing client.
 
