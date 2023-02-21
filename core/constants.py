@@ -6,6 +6,4 @@ Typical usage example:
     from core.constants import bar
     foo = bar
 """
-CSP_SCRIPT_EXCLUSION_HEADERS = (
-    "cdn.jsdelivr.net code.jquery.com cdn.rawgit.com cdn.usefathom.com"
-)
+CSP_SCRIPT_EXCLUSION_HEADERS = "unsafe-inline"
