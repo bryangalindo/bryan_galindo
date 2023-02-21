@@ -8,6 +8,7 @@ from flask import send_from_directory
 from werkzeug.wrappers.response import Response
 
 import core.config as cfg
+from core.constants import CSP_SCRIPT_EXCLUSION_HEADERS
 
 app: Flask = Flask(__name__)
 
@@ -23,7 +24,7 @@ def add_security_headers(response: Response) -> Response:
     """
     response.headers[
         "Content-Security-Policy"
-    ] = "script-src cdn.jsdelivr.net code.jquery.com cdn.rawgit.com cdn.usefathom.com"
+    ] = f"script-src {CSP_SCRIPT_EXCLUSION_HEADERS}"
     response.headers[
         "Strict-Transport-Security"
     ] = "max-age=31536000; includeSubDomains"

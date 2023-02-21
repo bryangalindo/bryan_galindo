@@ -7,6 +7,7 @@ import pytest
 from flask.testing import FlaskClient
 
 import core.config as cfg
+from core.constants import CSP_SCRIPT_EXCLUSION_HEADERS
 from webapp.app import app  # pylint: disable=import-error
 
 
@@ -93,7 +94,7 @@ def test_content_security_policy_header_exists(
         assert "Content-Security-Policy" in response.headers
         assert (
             response.headers["Content-Security-Policy"]
-            == "script-src cdn.jsdelivr.net code.jquery.com cdn.rawgit.com cdn.usefathom.com"
+            == f"script-src {CSP_SCRIPT_EXCLUSION_HEADERS}"
         )
 
 
