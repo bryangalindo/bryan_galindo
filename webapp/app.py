@@ -1,14 +1,28 @@
 """
 Main entrypoint for Flask app
 """
+import sentry_sdk
 from flask import Flask
 from flask import redirect
 from flask import render_template
 from flask import send_from_directory
+from sentry_sdk.integrations.flask import FlaskIntegration
 from werkzeug.wrappers.response import Response
 
 import core.config as cfg
 from core.constants import CSP_SCRIPT_EXCLUSION_HEADERS
+
+sentry_sdk.init(
+    dsn=cfg.SENTRY_DSN,
+    integrations=[
+        FlaskIntegration(),
+    ],
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0,
+)
+
 
 app: Flask = Flask(__name__)
 
