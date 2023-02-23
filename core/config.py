@@ -12,3 +12,4 @@ from dotenv import load_dotenv
 load_dotenv()
 
 RESUME_URL: str = os.environ["RESUME_URL"]
+SENTRY_DSN: str = os.environ["SENTRY_DSN"]
