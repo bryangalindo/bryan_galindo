@@ -86,3 +86,12 @@ def robotstxt() -> Response:
     :returns: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
     """
     return send_from_directory(app.static_folder, "robots.txt")
+
+
+@app.route("/sonetel")
+def sonetel() -> str:
+    return (
+        '<script async id="slcLiveChat" '
+        'src="https://widget.sonetel.com/SonetelWidget.min.js" '
+        'data-account-id="208215379"></script>'
+    )
