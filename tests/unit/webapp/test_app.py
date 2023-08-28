@@ -33,7 +33,7 @@ def test_home_page(
         response = test_client.get("/")
         html = response.data.decode()
         assert '<section id="about-me">' in html
-        assert '<section id="hobbies">' in html
+        assert '<section id="resume">' in html
         assert '<meta http-equiv="Cache-Control"' in html
 
 
