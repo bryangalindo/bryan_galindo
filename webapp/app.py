@@ -88,6 +88,16 @@ def robotstxt() -> Response:
     return send_from_directory(app.static_folder, "robots.txt")
 
 
+@app.route("/termsofuse")
+def termsofuse() -> str:
+    """
+    Displays terms of use as string.
+
+    :return: string (e.g., "No scraping")
+    """
+    return "<h1>No Scraping</h1>"
+
+
 @app.route("/sonetel")
 def sonetel() -> str:
     return (
