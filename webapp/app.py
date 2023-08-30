@@ -88,6 +88,16 @@ def robotstxt() -> Response:
     return send_from_directory(app.static_folder, "robots.txt")
 
 
+@app.route("/rankmebby")
+def rankmebby() -> Response:
+    """
+    Redirects the client to the NFT ranking website clone I built.
+
+    :returns: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
+    """
+    return redirect("https://rankmebby.com")
+
+
 @app.route("/termsofuse")
 def termsofuse() -> str:
     """
