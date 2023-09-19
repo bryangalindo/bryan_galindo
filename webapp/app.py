@@ -98,6 +98,18 @@ def rankmebby() -> Response:
     return redirect("https://rankmebby.com")
 
 
+@app.route("/bloom")
+def bloom() -> Response:
+    """
+    Redirects the client to the ELI5 Bloom Filter article I wrote.
+
+    :return: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
+    """
+    return redirect(
+        "https://medium.com/gitconnected/eli5-what-the-f-is-a-bloom-filter-4a58a160833d"
+    )
+
+
 @app.route("/termsofuse")
 def termsofuse() -> str:
     """
@@ -106,12 +118,3 @@ def termsofuse() -> str:
     :return: string (e.g., "No scraping")
     """
     return "<h1>No Scraping</h1>"
-
-
-@app.route("/sonetel")
-def sonetel() -> str:
-    return (
-        '<script async id="slcLiveChat" '
-        'src="https://widget.sonetel.com/SonetelWidget.min.js" '
-        'data-account-id="208215379"></script>'
-    )
