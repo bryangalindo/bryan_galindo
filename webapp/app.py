@@ -78,6 +78,16 @@ def wordcounter() -> Response:
     return redirect("https://github.com/bryangalindo/wordcounter")
 
 
+@app.route("/hamilton")
+def hamilton() -> Response:
+    """
+    Redirects client to open-source project Hamilton.
+
+    :return: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
+    """
+    return redirect("https://github.com/DAGWorks-Inc/hamilton")
+
+
 @app.route("/tamalemkt")
 def tamalemkt() -> Response:
     """
