@@ -68,6 +68,16 @@ def resume() -> Response:
     return redirect(cfg.RESUME_URL)
 
 
+@app.route("/wordcounter")
+def wordcounter() -> Response:
+    """
+    Redirects client to word counter GitHub project.
+
+    :return: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
+    """
+    return redirect("https://github.com/bryangalindo/wordcounter")
+
+
 @app.route("/tamalemkt")
 def tamalemkt() -> Response:
     """
