@@ -118,6 +118,16 @@ def rankmebby() -> Response:
     return redirect("https://rankmebby.com")
 
 
+@app.route("/bigbagdata")
+def bigbagdata() -> Response:
+    """
+    Redirects the client to the Analytics Engineering bootcamp capstone project.
+
+    :returns: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
+    """
+    return redirect("https://bigbagdata.com")
+
+
 @app.route("/bloom")
 def bloom() -> Response:
     """
