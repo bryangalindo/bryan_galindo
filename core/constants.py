@@ -16,3 +16,7 @@ JS_CSP_SCRIPTS = [
 ]
 
 CSP_SCRIPT_EXCLUSION_HEADERS = " ".join(JS_CSP_SCRIPTS)
+RESUME_DEV_URL = (
+    "https://docs.google.com/document/d/"
+    "15RetRj__KnEulDv_G8xkFDe5huA4553WeDHCSoiXjB0/edit?usp=sharing"
+)

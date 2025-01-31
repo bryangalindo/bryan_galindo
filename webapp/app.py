@@ -11,6 +11,7 @@ from werkzeug.wrappers.response import Response
 
 import core.config as cfg
 from core.constants import CSP_SCRIPT_EXCLUSION_HEADERS
+from core.constants import RESUME_DEV_URL
 
 sentry_sdk.init(
     dsn=cfg.SENTRY_DSN,
@@ -66,6 +67,16 @@ def resume() -> Response:
     :returns: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
     """
     return redirect(cfg.RESUME_URL)
+
+
+@app.route("/resume-dev")
+def resume_dev() -> Response:
+    """
+    Redirects the client to my resume.
+
+    :returns: Werkzeug response object (e.g., <Response 370 bytes [302 FOUND]>)
+    """
+    return redirect(RESUME_DEV_URL)
 
 
 @app.route("/wordcounter")
